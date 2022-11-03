@@ -29,28 +29,28 @@ def start(update: Update, context: CallbackContext):
 
     user = update.message.from_user
     userName = user.first_name
-    if user.id == 1742717838:
+    if user.id == int(telegramidofaz):
         Name = "Azeb M"
         update.message.reply_text(
             "Hey, " + Name+"! I admire you very much!")
         update.message.reply_text(
             "Send any word, you want meaning for. I will define it.")
-    elif user.id == 1648265210:
+    elif user.id == int(tgidofesu):
         Name = "Esubalew Chekol"
         update.message.reply_text("Hey,",Name+"!")
         update.message.reply_text(
             "Send any word, you want meaning for. I will define it")
-    elif user.id == 1877835630:
+    elif user.id ==int(idoflidu):
         Name = 'Lidiya F'
         update.message.reply_text(
             f'Hey, {Name}!'
         )
-    elif user.id == 842766828:
+    elif user.id == int(tgidofbeki):
         Name = 'Bereket G'
         update.message.reply_text(
             "Hey,{}".format(Name)
         )
-    elif user.id == 1615509187:
+    elif user.id == int(tgidofhayu):
         Name = 'Hayat E'
         update.message.reply_text(
             "Hey,", Name
@@ -259,7 +259,7 @@ def filter_documents(update: Update, context: CallbackContext):
 
 
 # def main():
-TOKEN = '5497017439:AAHkmvbmBIwLaH8J2j3FKjGFgCCDJ8s07O0'
+TOKEN = str(TOKEN)'
 updater = Updater(TOKEN, use_context=True)
 
 updater.dispatcher.add_handler(CommandHandler('start', start))
