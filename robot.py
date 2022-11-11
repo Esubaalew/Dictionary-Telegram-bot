@@ -95,6 +95,10 @@ def search(update: Update, context: CallbackContext):
     """
     text = update.message.text
     text = text.strip()
+    
+    #As the information a saw on Wikipedia The Merriam Wester Dictionary Defines a word with maximum 27 characters long
+    #that's electroencephalographically . So i decided to stop user from searching 27+ char long words
+    
     if len(text) > 27:
         update.message.reply_text(
             "Sorry! I can't find meanings for words having letters greater than 27\n The longest word i can define is electroencephalographically[27 letters]"
@@ -105,7 +109,7 @@ def search(update: Update, context: CallbackContext):
     headers = {'User-Agent': 'Generic user agent'}
     page = requests.get(url, headers=headers)
     soup = BeautifulSoup(page.text, 'html.parser')
-    pprint(soup)
+    #pprint(soup)
     try:
         update.message.reply_text(
             f'I am searching for {text}, Please wait....',
