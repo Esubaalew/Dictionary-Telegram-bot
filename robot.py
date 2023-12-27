@@ -263,7 +263,7 @@ def filter_documents(update: Update, context: CallbackContext):
 
 
 def main():
-    TOKEN = str("")
+    TOKEN = str("6949099869:AAFDzmxBP69FnavW4qXd-CNO9qQv3UP3Zsg")
     updater = Updater(TOKEN, use_context=True)
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CommandHandler('list', list))
@@ -288,3 +288,7 @@ def main():
     updater.dispatcher.add_handler(MessageHandler(Filters.audio, filter_audios))
     updater.dispatcher.add_handler(MessageHandler(Filters.command, bad_command))
     updater.start_polling()
+
+
+if __name__ == "__main__":
+    main()
