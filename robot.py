@@ -262,30 +262,29 @@ def filter_documents(update: Update, context: CallbackContext):
     )
 
 
-# def main():
-TOKEN = str(TOKEN)'
-updater = Updater(TOKEN, use_context=True)
-
-updater.dispatcher.add_handler(CommandHandler('start', start))
-updater.dispatcher.add_handler(CommandHandler('list', list))
-updater.dispatcher.add_handler(MessageHandler(
+def main():
+    TOKEN = str("")
+    updater = Updater(TOKEN, use_context=True)
+    updater.dispatcher.add_handler(CommandHandler('start', start))
+    updater.dispatcher.add_handler(CommandHandler('list', list))
+    updater.dispatcher.add_handler(MessageHandler(
     Filters.text & (~Filters.command), search))
-updater.dispatcher.add_handler(
+    updater.dispatcher.add_handler(
     MessageHandler(Filters.contact, filter_contacts))
-updater.dispatcher.add_handler(MessageHandler(Filters.video, filter_videos))
-updater.dispatcher.add_handler(MessageHandler(Filters.poll, filter_polls))
-updater.dispatcher.add_handler(MessageHandler(Filters.photo, filter_photos))
-updater.dispatcher.add_handler(MessageHandler(Filters.dice, filter_dice))
-updater.dispatcher.add_handler(
+    updater.dispatcher.add_handler(MessageHandler(Filters.video, filter_videos))
+    updater.dispatcher.add_handler(MessageHandler(Filters.poll, filter_polls))
+    updater.dispatcher.add_handler(MessageHandler(Filters.photo, filter_photos))
+    updater.dispatcher.add_handler(MessageHandler(Filters.dice, filter_dice))
+    updater.dispatcher.add_handler(
     MessageHandler(Filters.document, filter_documents))
-updater.dispatcher.add_handler(
+    updater.dispatcher.add_handler(
     MessageHandler(Filters.caption, filter_captions))
-updater.dispatcher.add_handler(
+    updater.dispatcher.add_handler(
     MessageHandler(Filters.sticker, filter_stickers))
-updater.dispatcher.add_handler(MessageHandler(
+    updater.dispatcher.add_handler(MessageHandler(
     Filters.animation, filter_animations))
-updater.dispatcher.add_handler(MessageHandler(
+    updater.dispatcher.add_handler(MessageHandler(
     Filters.attachment, filter_attachments))
-updater.dispatcher.add_handler(MessageHandler(Filters.audio, filter_audios))
-updater.dispatcher.add_handler(MessageHandler(Filters.command, bad_command))
-updater.start_polling()
+    updater.dispatcher.add_handler(MessageHandler(Filters.audio, filter_audios))
+    updater.dispatcher.add_handler(MessageHandler(Filters.command, bad_command))
+    updater.start_polling()
