@@ -263,7 +263,8 @@ def filter_documents(update: Update, context: CallbackContext):
 
 
 def main():
-    TOKEN = str("6949099869:AAFDzmxBP69FnavW4qXd-CNO9qQv3UP3Zsg")
+    import os 
+    TOKEN = os.getenv("TOKEN")
     updater = Updater(TOKEN, use_context=True)
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CommandHandler('list', list))
